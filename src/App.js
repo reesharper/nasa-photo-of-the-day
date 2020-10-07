@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from 'axios'
+import Header from './Header'
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       {/* <PictureGallery /> */}
     </div>
   );
