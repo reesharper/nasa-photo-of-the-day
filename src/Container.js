@@ -9,9 +9,14 @@ const kf = keyframes`
 
 const StyledContainer = styled.div`
 
-    // opacity: 0;
-    // animation: ${kf} 1s ease-in-out forwards;
-    // margin: 4% auto;
+    opacity: 0;
+    animation: ${kf} 1s ease-in-out forwards;
+    background: lightgrey;
+    width: 60%;
+    margin: 5% auto;
+    padding: 10px;
+    border-radius: 50px;
+    border: solid 2px black;
 
     h2 {
         font-size: 3rem;
@@ -20,24 +25,23 @@ const StyledContainer = styled.div`
 
     h4 {
         margin-top: -1%;
+        font-size: 1.5rem;
     }
 
     img {
         margin-top: 4%;
+
+        &:hover {
+            transform: scale(1.85)
+            
+        }
+        transition: all .5s ease-in-out;
     }
 
     p {
-        width: 50%;
+        width: 85%;
         margin: 5% auto;
         font-size: 1.3rem;
-    }
-
-    p.footer {
-        background: black;
-        color: white;
-        width: 100%;
-        height: 3vh;
-        margin-bottom: 0%;
     }
 
 `
@@ -54,7 +58,6 @@ return(
         <h4>{date}</h4>
         <img src={url} alt=""/>
         <p>{explanation}</p>
-        <p class="footer"> Thanks for Visiting! </p>
     </StyledContainer>
     </>
     )
