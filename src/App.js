@@ -2,25 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from 'axios'
 import Header from './Header'
+import Container from './Container'
 
 function App() {
 
-  const [pictures, setPictures] = useState([]);
-  const [currentPic, setCurrentPic] = useState(null);
-
-  const openDetails = id => {
-    setCurrentPic(id)
-  }
-
-  const closeDetails = () => {
-    setCurrentPic(null)
-  }
+  const [picture, setPicture] = useState({});
+  const [date, setDate] = useState("2020-10-07");
 
   useEffect(() => {
     const fetchPics = () => {
-      axios.get('API')
+      axios.get(`https://api.nasa.gov/planetary/apod?api_key=LTFmZ7vh9t42vCfsBrWqJdNXH4tUsOR6AOkMcBqY&date=${date}`)
       .then(res => {
-        setPictures(res.data)
+        // console.log(res);
+        // console.log(res.data);
+        setPicture(res.data)
       })
       .catch(err => {
         debugger
@@ -33,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <PictureGallery /> */}
+      <Container picture={picture} />
     </div>
   );
 }
